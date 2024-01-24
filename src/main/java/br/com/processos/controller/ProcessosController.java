@@ -83,7 +83,7 @@ public class ProcessosController {
 	public String excluirProcesso(@PathVariable String numProcessos) {
         Processos proceOptional = processosRepository.findByNumProcessos(numProcessos);
         if (proceOptional != null && proceOptional.getIdProcessos() > 0) {
-            processosRepository.deleteById(proceOptional.getIdProcessos());
+            processosRepository.deleteById(proceOptional.getIdProcessos().intValue());
             return "Excluido com sucesso!";
         }else{
             return "Nenhum Processo encontrado com este ID";
